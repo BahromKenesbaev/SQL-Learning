@@ -1,169 +1,54 @@
-Create database f44_SQL_Class_2
+-- Easy
+/*
+1. Define the following terms:
 
-use f44_SQL_class_2
+Data – Ma’lumotlar; bu raqamlar, matn, sanalar kabi axborotlar bo‘lib, ularni tahlil qilish yoki saqlash uchun ishlatiladi.
 
-/* ddl dml commands */
+Database – Ma’lumotlar bazasi; bu ma’lumotlarni tartibli saqlash, boshqarish va izlash uchun ishlatiladigan tizim.
 
+Relational Database – Aloqador ma’lumotlar bazasi; bunda ma’lumotlar bir nechta jadvalda saqlanadi va ular orasida munosabat (relationship) mavjud.
 
-/* create, alter, drop, truncate update, insert, delete */
+Table – Jadval; bu ma’lumotlar bazasidagi asosiy tuzilma bo‘lib, qator (row) va ustun (column)lardan iborat.
 
 
-/* system databases */
 
+2. List five key features of SQL Server:
 
-/* master = the most important database 
-   model = shablon database
-   msdb = job
-   tempDB = vaqtinchalik tablelarni saqlaydi
- */
+High Performance – Katta hajmdagi ma’lumotlar bilan tez ishlay oladi.
 
-   select * from #emp
-   create database test_model
+Data Security – Kuchli xavfsizlik mexanizmlari (logins, roles, permissions).
 
+Backup and Restore – Ma’lumotlarni zaxiralash va tiklash imkoniyati.
 
-   /* schemas */
+Stored Procedures and Triggers – Murakkab biznes mantiqlarini avtomatlashtirish imkoniyati.
 
+Scalability – Kichikdan katta tizimlargacha ishlata olish mumkin.
 
-   create table employees (id int, name varchar(50))
 
-   create schema Sales
+3. What are the different authentication modes?
 
-   create table sales.employees (id int, name varchar(50))
+Windows Authentication – Tizim foydalanuvchisiga asoslangan xavfsizlik.
 
+SQL Server Authentication – Maxsus SQL login va parol orqali kirish.
 
-   select * from f44_SQL_CLass_2.sales.employees
+*/
 
 
-   /* mdf/ldf */
-   /* mdf = main file
-	  ldf = log file
-	*/
+-- Medium 
 
+-- 4. Create a new database in SSMS named SchoolDB.
+Create database SchoolDB
 
+-- 5. Write and execute a query to create a table called Students with columns: StudentID (INT, PRIMARY KEY), Name (VARCHAR(50)), Age (INT).
+create table Students (StudentID INT PRIMARY KEY, Name VARCHAR(50), Age INT)
 
-insert into f44_SQL_CLass_2.sales.employees values (1, 'Tom'), (2, 'Alex'), (3, 'Bob')
 
-insert into f44_SQL_Class_2.Sales.employees (id) values (2)
+/* 6. Describe the differences between SQL Server, SSMS, and SQL:
 
-insert into f44_SQL_Class_2.Sales.employees 
-select 3, 'Robert'
+SQL Server - Microsoft’ning ma’lumotlar bazasini boshqarish tizimi (DBMS). Bu yerda ma’lumotlar saqlanadi va boshqariladi.
+SSMS (SQL Server Management Studio) - SQL Server bilan ishlash uchun grafik interfeys (GUI). Bu dastur orqali SQL yoziladi, ma’lumotlar ko‘riladi va boshqariladi.
+SQL (Structured Query Language) - Ma’lumotlar bilan ishlash uchun universal so‘rov tili. Bu tilda biz ma’lumotlarni tanlaymiz, o‘zgartiramiz, o‘chiramiz va boshqalar.
 
-insert into f44_SQL_Class_2.Sales.employees 
-select 4, 'Charlie'
-union all
-select 5, 'Sara'
-Union all
-select 6, 'Robertson'
+*/
 
-
-select * from f44_SQL_CLass_2.sales.employees
-
-
-select * into new_table from f44_SQL_CLass_2.sales.employees
-
-
-select * from new_table
-
-/* drop */
-
-create schema sales1
-
-drop database test_f44
-
-drop schema sales1
-
-drop table dbo.employees
-
-/* truncate */
-
-truncate table f44_SQL_CLass_2.sales.employees
-
-select * from f44_SQL_CLass_2.sales.employees
-
-
-/* alter */
-
-alter table f44_SQL_CLass_2.sales.employees
-add age int
-
-alter table f44_SQL_CLass_2.sales.employees
-drop column age
-
-alter table f44_SQL_CLass_2.sales.employees
-alter column name nvarchar(50)
-
-
-create table t (name varchar(50))
-insert into t values ('привет')
-
-
-select * from t
-
-create table nt (name nvarchar(50))
-
-
-insert into nt values ('hello')
-
-insert into nt values (N'你好')
-
-
-select * from nt
-
-/* update */
-
-select * from sales.employees
-
-
-update sales.employees
-set name = 'Tom', age = 40
-where id = 1
-
-update sales.employees 
-set name = 'Alex'
-where id = 2 or id = 3
-
-
-exec sp_rename 'sales.employees.name', 'First_name', 'column'
-
-
-select * from sales.employees
-
-
-exec sp_rename 'sales.employees', 'Customers'
-
-
-select * from sales.customers
-
-
-/* delete */
-
-delete from sales.customers
-where id = 2
-
-insert into f44_SQL_CLass_2.sales.customers (id, First_name, age) values (4, 'Alex', 24), (2, 'Alex', 30), (3, 'Bob', 45)
-
-
-select * from Sales.customers
-
-
-delete from sales.customers
-where id in (1, 3)
-
-
-alter database f42_graphic modify name = test
-
-
-
-if null = null
-begin
-print 'they are equal'
-end
-else
-begin
-print 'they are not equal'
-end
-
-
-
-
-set ansi_nulls on
+-- Hard 
