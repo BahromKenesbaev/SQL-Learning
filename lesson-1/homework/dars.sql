@@ -52,3 +52,33 @@ SQL (Structured Query Language) - Ma’lumotlar bilan ishlash uchun universal so
 */
 
 -- Hard 
+/* 7. Research and explain the different SQL commands: DQL, DML, DDL, DCL, TCL with examples.
+
+DDL Data Definition Language - Ma’lumotlar bazasi tuzilmasini (schema) yaratish, o‘zgartirish yoki o‘chirish CREATE, ALTER, DROP, TRUNCATE, RENAME
+
+DML Data Manipulation Language - Jadvaldagi ma’lumotlarni qo‘shish, o‘zgartirish, o‘chirish INSERT, UPDATE, DELETE
+
+DQL Data Query Language - Ma’lumotni so‘rov (query) orqali olish / tanlab chiqarish SELECT (FROM, WHERE, GROUP BY, ORDER BY)
+
+DCL Data Control Language - Ma’lumotlar bazasida kimga nima huquq berilishi / cheklanishi bilan ishlash GRANT, REVOKE 
+
+TCL Transaction Control Language - Ma’lumotlar bazasida bir nechta buyruqlar to‘plamini atomik operatsiya sifatida bajarish, qayta tiklash yoki bekor qilish
+BEGIN TRANSACTION, COMMIT, ROLLBACK, SAVEPOINT
+
+*/
+
+-- 8. Write a query to insert three records into the Students table.
+
+
+insert into Students (StudentID, Name, Age) values 
+(1, 'Bob', 23), 
+(2, 'Sara', 21),
+(3, 'Jim', 22)
+
+select * from Students
+
+/* 9. Restore AdventureWorksDW2022.bak file to your server. (write its steps to submit) You can find the database from this link :https://github.com/Microsoft/sql-server-samples/releases/download/adventureworks/AdventureWorksDW2022.bak
+
+Program Files > Microsoft SQL Server > MSSQL16.MSSQLSERVER > MSSQL > Backup
+
+SQL > Database > Restore Database > Device > ... > Add > Ok 
